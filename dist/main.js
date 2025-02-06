@@ -33,16 +33,13 @@
           chrome.storage.local.set({
             display: e.classList.contains("display_none_all"),
           });
-      });
-    let o = null;
-    e.addEventListener("dragstart", (e) => {
-      o = e.target;
-    });
-    const n = document.getElementsByTagName("body")[0];
-    n.addEventListener("dragover", (e) => {
+      }),
+      e.addEventListener("dragstart", (e) => {});
+    const o = document.getElementsByTagName("body")[0];
+    o.addEventListener("dragover", (e) => {
       e.preventDefault();
     }),
-      n.addEventListener("drop", (t) => {
+      o.addEventListener("drop", (t) => {
         (e.style.top = t.pageY + "px"),
           (e.style.left = t.pageX + "px"),
           chrome.storage.local.set({ position_x: t.pageX + "px" }),

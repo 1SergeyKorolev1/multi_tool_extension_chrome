@@ -53,10 +53,10 @@ export function statr_app_clock() {
     clock.innerText = time;
   }
 
-  let dragged = null; // перемещенные данные
+  // let dragged = null; // перемещенные данные
   // в обработчике устанавливаем ссылку на перетаскиваемый элемент
   clock.addEventListener("dragstart", (e) => {
-    dragged = e.target;
+    // dragged = e.target;
   });
   // целевая область перемещения
   const body_html = document.getElementsByTagName("body")[0];
