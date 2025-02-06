@@ -2,32 +2,51 @@
   "use strict";
   !(function () {
     const e = document.createElement("div");
-    function n() {
-      const n = new Date(),
+    function t() {
+      const t = new Date(),
         o = new Intl.DateTimeFormat("ru-Ru", {
           hour: "numeric",
           minute: "numeric",
           second: "numeric",
-        }).format(n);
+        }).format(t);
       e.innerText = o;
     }
     (e.draggable = !0),
       e.classList.add("clock_style_one", "display_none_all"),
-      setInterval(n, 1e3),
-      n(),
+      setInterval(t, 1e3),
+      t(),
       document.body.append(e),
-      chrome.storage.local.get(["display"], (n) => {
-        n.display && e.classList.remove("display_none_all");
+      chrome.storage.local.get(["display"], (t) => {
+        t.display && e.classList.remove("display_none_all");
       }),
-      chrome.storage.onChanged.addListener(function (n, o) {
-        n.display && e.classList.toggle("display_none_all");
+      chrome.storage.local.get(["position_y"], (t) => {
+        t.position_y && (e.style.top = t.position_y);
       }),
-      document.addEventListener("keydown", function (n) {
-        "KeyM" === n.code &&
+      chrome.storage.local.get(["position_x"], (t) => {
+        t.position_x && (e.style.left = t.position_x);
+      }),
+      chrome.storage.onChanged.addListener(function (t, o) {
+        t.display && e.classList.toggle("display_none_all");
+      }),
+      document.addEventListener("keydown", function (t) {
+        "KeyM" === t.code &&
           chrome.storage.local.set({
             display: e.classList.contains("display_none_all"),
           });
-      }),
-      console.log("Привет");
+      });
+    let o = null;
+    e.addEventListener("dragstart", (e) => {
+      o = e.target;
+    });
+    const n = document.getElementsByTagName("body")[0];
+    n.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    }),
+      n.addEventListener("drop", (t) => {
+        (e.style.top = t.pageY + "px"),
+          (e.style.left = t.pageX + "px"),
+          chrome.storage.local.set({ position_x: t.pageX + "px" }),
+          chrome.storage.local.set({ position_y: t.pageY + "px" });
+      });
   })();
 })();

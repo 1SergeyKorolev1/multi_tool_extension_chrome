@@ -13,6 +13,18 @@ export function statr_app_clock() {
     if (result.display) clock.classList.remove("display_none_all");
   });
 
+  // пороверяем соостояние объекта position_y и
+  // устанавливаем нужное положение блоку с часамим в случае true
+  chrome.storage.local.get(["position_y"], (result) => {
+    if (result.position_y) clock.style.top = result.position_y;
+  });
+
+  // пороверяем соостояние объекта position_x и
+  // устанавливаем нужное положение блоку с часамим в случае true
+  chrome.storage.local.get(["position_x"], (result) => {
+    if (result.position_x) clock.style.left = result.position_x;
+  });
+
   // следим за изменениями объекта display - убираем/добавляем видимость блоку с часамим
   chrome.storage.onChanged.addListener(function (changes, namespace) {
     if (changes.display) {
@@ -40,5 +52,25 @@ export function statr_app_clock() {
     }).format(date);
     clock.innerText = time;
   }
-  console.log("Привет");
+
+  let dragged = null; // перемещенные данные
+  // в обработчике устанавливаем ссылку на перетаскиваемый элемент
+  clock.addEventListener("dragstart", (e) => {
+    dragged = e.target;
+  });
+  // целевая область перемещения
+  const body_html = document.getElementsByTagName("body")[0];
+  // body_html.style.position = "relative";
+  // предупреждаем событие drop
+  body_html.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+  // полностью перемещаем перетаскиваемый элемент на
+  // целевую область и создаем два объекта в хранилище chrome с данными о положении
+  body_html.addEventListener("drop", (e) => {
+    clock.style.top = e.pageY + "px";
+    clock.style.left = e.pageX + "px";
+    chrome.storage.local.set({ position_x: e.pageX + "px" });
+    chrome.storage.local.set({ position_y: e.pageY + "px" });
+  });
 }
