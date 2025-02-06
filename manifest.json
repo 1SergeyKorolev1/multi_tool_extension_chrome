@@ -1,0 +1,17 @@
+{
+  "name": "Multi-tool",
+  "description": "Browser extension with many features.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./dist/main.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {},
+  "action": {},
+  "permissions": ["storage"],
+  "background": {}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "multi_tool_extension_chrome",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Hi there, I'm <a href=\"https://github.com/1SergeyKorolev1\" target=\"_blank\">Sergey Korolev</a>\r <img src=\"https://github.com/blackcater/blackcater/raw/main/images/Hi.gif\" height=\"32\"/> Разработчик из России 🇷🇺</h1>",
+  "main": "index.js",
+  "scripts": {
+    "build": "rd /s /q dist && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1SergeyKorolev1/multi_tool_extension_chrome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1SergeyKorolev1/multi_tool_extension_chrome/issues"
+  },
+  "homepage": "https://github.com/1SergeyKorolev1/multi_tool_extension_chrome#readme",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

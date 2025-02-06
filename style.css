@@ -1,0 +1,12 @@
+.clock_style_one {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+  font-size: 32px;
+  color: aqua;
+}
+
+.display_none_all {
+  display: none;
+}
