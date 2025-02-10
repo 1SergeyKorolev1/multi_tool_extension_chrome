@@ -19,6 +19,8 @@
   - dist
     - main.js - тут я всегда оставляю финальную сборку на которую ссылайтся manifest.json
   - manifest.json
+  - popup.html
+  - popup.js
   - styly.css
 
 ---
