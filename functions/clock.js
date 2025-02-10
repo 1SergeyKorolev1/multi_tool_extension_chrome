@@ -59,15 +59,16 @@ export function statr_app_clock() {
     // dragged = e.target;
   });
   // целевая область перемещения
-  const body_html = document.getElementsByTagName("body")[0];
+  // const body_html = document.getElementsByTagName("body")[0];
   // body_html.style.position = "relative";
   // предупреждаем событие drop
-  body_html.addEventListener("dragover", (e) => {
-    e.preventDefault();
-  });
+  // body_html.addEventListener("dragover", (e) => {
+  //   e.preventDefault();
+  // });
   // полностью перемещаем перетаскиваемый элемент на
   // целевую область и создаем два объекта в хранилище chrome с данными о положении
-  body_html.addEventListener("drop", (e) => {
+  // заклментрованная часть выше нужна для события drop на body_html.addEventListener("drop"
+  clock.addEventListener("dragend", (e) => {
     clock.style.top = e.pageY + "px";
     clock.style.left = e.pageX + "px";
     chrome.storage.local.set({ position_x: e.pageX + "px" });
