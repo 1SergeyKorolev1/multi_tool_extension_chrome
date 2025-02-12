@@ -13,11 +13,12 @@
 
 - клонируйте проект командой git clone git@github.com:1SergeyKorolev1/multi_tool_extension_chrome.git
 
-#### далее удалите все кроме:
+#### далее удалите все кроме (можно не удалять):
 
 - multi_tool_extension_chrome
   - dist
     - main.js - тут я всегда оставляю финальную сборку на которую ссылайтся manifest.json
+  - icons/...
   - manifest.json
   - popup.html
   - popup.js
