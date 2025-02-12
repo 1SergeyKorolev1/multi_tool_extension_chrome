@@ -6,11 +6,11 @@ function getRandomQuote() {
 
   fetch("https://official-joke-api.appspot.com/random_joke")
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       jokeElement.textContent = `"${data.setup}" — ${data.punchline}`;
     })
     .catch((err) => {
