@@ -1,23 +1,11 @@
-body {
-  text-align: center;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-}
-
-.multi_tool {
-  background-color: aqua;
-  margin: 0;
-  margin-bottom: 14px;
-  margin-top: -9px;
-  margin-left: -9px;
-  margin-right: -9px;
-  padding-bottom: 9px;
-  padding-top: 5px;
+.body_clock {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
 
 .clock_style_one {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   z-index: 10000;
@@ -27,17 +15,6 @@ body {
 
 .display_none_all {
   display: none;
-}
-
-.button_one {
-  width: 100%;
-  color: white;
-  background: linear-gradient(#01a9e1, #5bc4bc);
-  border-width: 0px;
-  border-radius: 20px;
-  padding: 5px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /* _____ стили для падающего снега _________ */
@@ -66,25 +43,4 @@ body {
   100% {
     transform: translateY(95vh);
   }
-}
-/* _____ стилли для подсказок  _________ */
-
-.help_div {
-  display: flex;
-  flex-direction: column;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: linear-gradient(#01a9e1, #5bc4bc);
-  width: max-content;
-  padding: 5px;
-  margin: auto;
-  margin-bottom: 14px;
-}
-
-.help_title {
-  margin: auto;
-  color: aliceblue;
-  font-size: 12px;
 }

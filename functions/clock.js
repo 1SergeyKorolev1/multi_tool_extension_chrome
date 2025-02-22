@@ -69,9 +69,9 @@ export function statr_app_clock() {
   // целевую область и создаем два объекта в хранилище chrome с данными о положении
   // заклментрованная часть выше нужна для события drop на body_html.addEventListener("drop"
   clock.addEventListener("dragend", (e) => {
-    clock.style.top = e.pageY + "px";
-    clock.style.left = e.pageX + "px";
-    chrome.storage.local.set({ position_x: e.pageX + "px" });
-    chrome.storage.local.set({ position_y: e.pageY + "px" });
+    clock.style.top = e.clientY + "px"; // e.pageY + "px";
+    clock.style.left = e.clientX + "px"; // e.pageX + "px";
+    chrome.storage.local.set({ position_x: e.clientX + "px" });
+    chrome.storage.local.set({ position_y: e.clientY + "px" });
   });
 }
