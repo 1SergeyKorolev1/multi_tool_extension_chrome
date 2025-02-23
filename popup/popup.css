@@ -1,44 +1,61 @@
 body {
   text-align: center;
-  width: 200px;
+  width: 350px;
+  height: 500px;
   display: flex;
   flex-direction: column;
+  background-image: url("../images/bacground_1.png");
+  background-position: bottom;
+  background-size: cover;
+  border: 1px solid white;
+  margin: 0;
 }
 
 .multi_tool {
-  background-color: aqua;
+  text-shadow: rgb(0, 8, 255) 1px 0 10px;
+  color: aqua;
+  background: linear-gradient(rgb(0, 131, 219), rgb(0, 243, 251));
   margin: 0;
   margin-bottom: 14px;
-  margin-top: -9px;
-  margin-left: -9px;
-  margin-right: -9px;
   padding-bottom: 9px;
   padding-top: 5px;
 }
 
 .button_one {
-  width: 100%;
+  margin: auto;
+  margin-bottom: 24px;
+  width: 85%;
   color: white;
-  background: linear-gradient(#01a9e1, #5bc4bc);
+  background: linear-gradient(rgb(0, 131, 219), rgb(0, 243, 251));
   border-width: 0px;
   border-radius: 20px;
+  border: 1px solid white;
   padding: 5px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.294);
+  transition: all 0.5s ease;
+}
+
+.button_one:hover {
+  opacity: 0.5;
+  margin-bottom: 21px;
 }
 
 .help_div {
-  display: flex;
   flex-direction: column;
+  border: 1px solid white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background: linear-gradient(#01a9e1, #5bc4bc);
+  background: linear-gradient(rgb(0, 131, 219), rgb(0, 243, 251));
   width: max-content;
-  padding: 5px;
   margin: auto;
+  padding: 5px;
+  margin-top: 0;
   margin-bottom: 14px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.294);
 }
 
 .help_title {

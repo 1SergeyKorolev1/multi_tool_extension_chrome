@@ -34,7 +34,7 @@ export function statr_app_clock() {
 
   // отслеживаем нажатие комб. ctrl+M и меняем объект display
   document.addEventListener("keydown", function (event) {
-    if (event.code === "KeyM") {
+    if (event.ctrlKey && event.code === "KeyV") {
       // console.log("%cРаботает", "font-size:24px;color:blue;");
       chrome.storage.local.set({
         display: clock.classList.contains("display_none_all"),

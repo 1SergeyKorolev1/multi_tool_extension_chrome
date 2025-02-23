@@ -1,7 +1,7 @@
 export function start_app_snow() {
   // отслеживаем нажатие комб. ctrl+B
   document.addEventListener("keydown", function (event) {
-    if (event.code === "KeyB") {
+    if (event.ctrlKey && event.code === "KeyB") {
       start_snow();
     }
   });
