@@ -65,7 +65,7 @@ function openImagesPage(urls) {
   chrome.tabs.create(
     { url: "./popup/popup_pages/page_grab.html", active: false },
     (tab) => {
-      alert("вы уверены что хотите украсть картинки со страницы {tab.id}");
+      alert(`вы уверены что хотите украсть картинки со страницы ${tab.id}`);
       // * Передать массив `urls` на эту страницу
       setTimeout(() => {
         // отправить список URL в новую вкладку
