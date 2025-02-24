@@ -51,9 +51,29 @@ function onResult(frames) {
   // Скопировать в буфер обмена полученный массив
   // объединив его в строку, используя символ перевода строки
   // как разделитель
-  window.navigator.clipboard.writeText(imageUrls.join("\n")).then(() => {
-    // закрыть окно расширения после
-    // завершения
-    window.close();
-  });
+  // window.navigator.clipboard.writeText(imageUrls.join("\n")).then(() => {
+  // закрыть окно расширения после
+  // завершения
+  //   window.close();
+  // });
+  openImagesPage(imageUrls);
+}
+
+function openImagesPage(urls) {
+  // TODO:
+  // * Открыть новую закладку браузера с HTML-страницей интерфейса
+  chrome.tabs.create(
+    { url: "./popup/popup_pages/page_grab.html", active: false },
+    (tab) => {
+      alert("вы уверены что хотите украсть картинки со страницы {tab.id}");
+      // * Передать массив `urls` на эту страницу
+      setTimeout(() => {
+        // отправить список URL в новую вкладку
+        chrome.tabs.sendMessage(tab.id, urls, (resp) => {
+          // сделать вкладку активной
+          chrome.tabs.update(tab.id, { active: true });
+        });
+      }, 500);
+    }
+  );
 }
